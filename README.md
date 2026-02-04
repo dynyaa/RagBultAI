@@ -166,21 +166,23 @@ All settings are controlled through environment variables. Copy `.env.example` t
 
 | Variable | Description |
 |----------|-------------|
-| `PG_CONN` | PostgreSQL connection string with pgvector |
-| `OPENAI_API_KEY` | OpenAI API key (used for embeddings + default LLM) |
-| `JWT_SECRET` | Secret for signing authentication tokens |
+| `PG_CONN` | PostgreSQL connection string (host must match your pgvector service) |
+| `OPENAI_API_KEY` | OpenAI API key (used for embeddings and as default LLM) |
+| `JWT_SECRET` | Random string for signing authentication tokens |
 
 ### LLM provider
 
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `LLM_PROVIDER` | `openai` | `openai`, `anthropic`, `google`, or `ollama` |
-| `LLM_MODEL` | Provider default | Model name (e.g., `gpt-4o-mini`, `claude-sonnet-4-20250514`) |
+| `LLM_MODEL` | `gpt-4o-mini` | Model name (e.g., `gpt-4o`, `claude-sonnet-4-20250514`) |
 | `ANTHROPIC_API_KEY` | -- | Required if `LLM_PROVIDER=anthropic` |
 | `GOOGLE_API_KEY` | -- | Required if `LLM_PROVIDER=google` |
 | `OLLAMA_BASE_URL` | `http://localhost:11434` | Ollama server URL |
 
 ### RAG tuning
+
+These have sensible defaults and don't need to be set unless you want to experiment:
 
 | Variable | Default | What it does |
 |----------|---------|-------------|
@@ -192,7 +194,7 @@ All settings are controlled through environment variables. Copy `.env.example` t
 | `USE_QUERY_DECOMPOSITION` | `true` | Break complex questions into sub-queries |
 | `USE_CONTEXTUAL_CHUNKING` | `true` | Prepend document context to each chunk |
 
-See [.env.example](.env.example) for the complete list with descriptions.
+See [.env.example](.env.example) for the full list.
 
 ---
 
@@ -283,20 +285,6 @@ POST /api/config/model             -- Switch LLM model at runtime
 
 ---
 
-## Evaluation
-
-Run the evaluation framework against your deployed system:
-
-```bash
-python eval/run_eval.py --project-id 1
-```
-
-This runs sample questions through the retrieval + LLM pipeline and measures precision@k, recall@k, faithfulness, and answer relevancy. Results are saved to `eval/reports/`.
-
-Edit `eval/test_data/sample_qa.json` to add your own test cases.
-
----
-
 ## Customization
 
 ### Change LLM provider
@@ -311,7 +299,7 @@ LLM_MODEL=claude-sonnet-4-20250514
 
 ### Customize the system prompt
 
-Edit `SYSTEM_PROMPT` in `config.py` to change how the LLM responds -- citation style, tone, response structure, etc.
+Edit `SYSTEM_PROMPT` in `core/config.py` to change how the LLM responds -- citation style, tone, response structure, etc.
 
 ### Change the UI theme
 
