@@ -1,0 +1,46 @@
+# RAG Template - Multi-Model
+# Deploy on bult.ai or self-host with Docker
+
+# Core Framework
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+python-multipart>=0.0.6
+
+# LlamaIndex Core + OpenAI
+llama-index-core>=0.10.0
+llama-index-llms-openai>=0.1.0
+llama-index-embeddings-openai>=0.1.0
+
+# Document Readers (PDF, DOCX, PPTX, etc.)
+llama-index-readers-file>=0.1.0
+pypdf>=4.0.0
+pymupdf>=1.23.0
+pdf2image>=1.16.0
+pytesseract>=0.3.10
+docx2txt>=0.8
+python-pptx>=0.6.21
+
+# Database
+psycopg2-binary>=2.9.9
+pgvector>=0.2.5
+
+# Utilities
+python-dotenv>=1.0.0
+pydantic>=2.5.3
+
+# Authentication
+pyjwt>=2.8.0
+passlib[bcrypt]>=1.7.4
+# OAuth libraries for Google authentication
+authlib>=1.2.0
+google-auth>=2.20.0
+httpx>=0.24.0
+
+# Advanced RAG - Reranking
+sentence-transformers>=2.2.0
+
+# PDF Export
+reportlab>=4.0.0
+
+# Optional: Cohere reranking (higher quality, requires API key)
+cohere>=5.0.0

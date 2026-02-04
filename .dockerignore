@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Git
+.git/
+.gitignore
+
+# Environment
+.env
+
+# Uploads (will be created in container)
+uploads/
+
+# Claude
+.claude/
+
+# Misc
+*.md
+LICENSE
+tmpclaude-*

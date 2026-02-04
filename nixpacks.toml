@@ -1,0 +1,9 @@
+providers = ["python"]
+
+# System packages for OCR (Tesseract + Poppler for PDF-to-image conversion)
+# Add more tesseract-ocr-* packages for additional OCR languages
+[phases.setup]
+aptPkgs = ["tesseract-ocr", "tesseract-ocr-rus", "tesseract-ocr-eng", "poppler-utils"]
+
+[start]
+cmd = "uvicorn app:app --host 0.0.0.0 --port ${PORT:-8002}"

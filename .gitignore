@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# Environment variables (NEVER commit .env)
+.env
+.env.local
+.env.*.local
+
+# IDEs & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Claude Code (if using Claude CLI)
+.claude/
+tmpclaude*
+
+# Development notes
+thoughts/
+
+# Logs
+*.log
+logs/
+
+# Database files
+*.db
+*.sqlite
+
+# Uploaded documents
+uploads/
+data/uploads/
+data/*.pdf
+data/*.docx
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+
+# Distribution / Build
+dist/
+build/
+*.egg-info/
