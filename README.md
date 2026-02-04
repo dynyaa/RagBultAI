@@ -38,8 +38,9 @@ Fork this repo on GitHub (or clone it and push to your own repo).
 
 1. On bult.ai, click **Create** > **GitHub**
 2. Select your forked repository
-3. Inside the service settings, set the port to `8002`
-4. Go to **Environment Variables** and add the variables from `.env.example`. The required ones:
+3. Go to the **Git** tab and change build settings from **Nixpacks** to **Dockerfile**. Set **Dockerfile Path** to `Dockerfile` and **Dockerfile Context** to `.`
+4. Inside the service settings, set the port to `8002`
+5. Go to **Environment Variables** and add the variables from `.env.example`. The required ones:
 
    | Variable | Value |
    |----------|-------|
@@ -126,6 +127,12 @@ cp .env.example .env
 
 # Run
 python app.py
+```
+
+A background worker starts automatically with the app. To run additional workers for faster document processing, open a separate terminal:
+
+```bash
+python core/worker.py
 ```
 
 Open http://localhost:8002. Register a user and start uploading documents.
